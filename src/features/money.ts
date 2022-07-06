@@ -1,8 +1,14 @@
-export class Dollar {
-  private amount: number;
+class Money {
+  protected amount: number;
 
   constructor(amount: number) {
     this.amount = amount;
+  }
+}
+
+export class Dollar extends Money {
+  constructor(amount: number) {
+    super(amount);
   }
 
   times(multiplier: number): Dollar {
