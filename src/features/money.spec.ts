@@ -1,43 +1,33 @@
-import { Dollar, Franc } from './money';
+import { Money } from './money';
 
 // Dollarのテスト
 describe('Dollarのテスト', () => {
   test('5$ * 2 = 10$', () => {
-    const fiveDollars = new Dollar(5);
-    expect(fiveDollars.times(2)).toMatchObject(new Dollar(10));
+    const fiveDollars = Money.dollar(5);
+    expect(fiveDollars.times(2)).toMatchObject(Money.dollar(10));
   });
 
   test('5$ * 3 = 15$', () => {
-    const fiveDollars = new Dollar(5);
-    expect(fiveDollars.times(3)).toMatchObject(new Dollar(15));
+    const fiveDollars = Money.dollar(5);
+    expect(fiveDollars.times(3)).toMatchObject(Money.dollar(15));
   });
 
   test('5$ = 5$', () => {
-    expect(new Dollar(5).equals(new Dollar(5))).toBeTruthy();
+    expect(Money.dollar(5).equals(Money.dollar(5))).toBeTruthy();
   });
 
   test('5$ != 6$', () => {
-    expect(new Dollar(5).equals(new Dollar(6))).toBeFalsy();
+    expect(Money.dollar(5).equals(Money.dollar(6))).toBeFalsy();
   });
 });
 
-// Francのテスト
-describe('Francのテスト', () => {
-  test('5CHF * 2 = 10CHF', () => {
-    const fiveFrancs = new Franc(5);
-    expect(fiveFrancs.times(2)).toMatchObject(new Franc(10));
+describe('DollarとFranの相互テスト', () => {
+  test('5$ != 5CHF', () => {
+    expect(Money.dollar(5).equals(Money.franc(5))).toBeFalsy();
   });
+});
 
-  test('5CHF * 3 = 15CHF', () => {
-    const fiveFrancs = new Franc(5);
-    expect(fiveFrancs.times(3)).toMatchObject(new Franc(15));
-  });
-
-  test('5CHF = 5CHF', () => {
-    expect(new Franc(5).equals(new Franc(5))).toBeTruthy();
-  });
-
-  test('5CHF != 6CHF', () => {
-    expect(new Franc(5).equals(new Franc(6))).toBeFalsy();
-  });
+test('通貨のチェックをする', () => {
+  expect(Money.dollar(1).currency).toBe('USD');
+  expect(Money.franc(1).currency).toBe('CHF');
 });

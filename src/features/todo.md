@@ -3,19 +3,27 @@
 - 金額に数値を掛け、金額を得る
   - [x] 5$ * 2 = 10$
   - [x] 5$ * 3 = 15$
-  - [ ] 5CHF * 2 = 10CHF
-  - [ ] 5CHF * 3 = 15CHF
+  - [x] 5CHF * 2 = 10CHF
+  - [x] 5CHF * 3 = 15CHF
   
 - [x] Dollarの副作用をどうする?
-- [ ] Moneyの丸処理どうする？
+- [ ] Moneyの丸め処理どうする？
 - [ ] valueObjectパターンを実装
   - [x] amountをprivateにする
   - [x] equals()
+    - [x] 5$ = 5$
+    - [x] 5$ != 6$
+    - [x] 5CHF = 5CHF
+    - [x] 5CHF != 6CHF
+  - [ ] 5$ != 5CHF
   - [ ] hashCode()
   - [ ] nullとの等価性比較
   - [ ] 他のオブジェクトとの等価性比較
 - [ ] DollarとFrancの重複の除去
-  - [ ] equalsの一般化
+  - [x] equalsの一般化
   - [ ] timesの一般化
+- [x] FrancとDollarを比較する
+- [ ] 通貨の概念
+- [ ] testFrancMultiplicationを削除するか？
 
 
